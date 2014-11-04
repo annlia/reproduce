@@ -1,0 +1,87 @@
+
+**Giusi Moffa**  
+**Statistical bioinformatics, University of Regensburg**  
+**Practical bioinformatics, 27 May 2014**  
+
+p-values, one big topic for reproducible findings
+========================================================
+
+So let's look at how we can get a dynamic and reproducible report with `knitr`, for getting in the news.
+
+This is an R Markdown document for producing dynamic reports.
+
+### Recording the $R$ session
+It may be useful since different versions in general will not produce identical results.
+
+```{r}
+# Print R session info
+sessionInfo()
+```
+
+It is a good habit also to set your working directory and check whether you are in the right place.
+
+```{r}
+setwd("~/juicy/BioStatWork2012/mytex/journalClub/Reproducibility/repBioInfo")
+getwd() ## obtain the working directory
+```
+
+## One old trick for getting in the news
+![Jelly Beans](figure/significant.png)
+
+Under the null-hypothesis p-values are expected to be uniformly distributed between 0 and 1. So if we have hundreds of crazy hypotheses we can try a fishing expedition for significance by testing all of them. On average 5% will come up as significant.
+
+```{r, fig.height=3}
+set.seed(31)
+nColors <- 200
+nObs <- 100
+jellyBeans <- matrix(rnorm(nObs*nColors), ncol=nColors)
+fishing4News <- apply(jellyBeans, 2, function(x) t.test(x)$p.value)
+```
+
+If we like simple numbers we can look at a table of summaries (here only for a small number of variables, for space constraints)
+```{r table, results='asis', comment=NA}
+library(xtable)
+options(xtable.type='html')
+xtable(summary(jellyBeans[,1:8]), caption="Some variables' summaries")
+```
+
+A graph might be more pleasant. The distribution can be visualised through the `hist` function and `density` function.
+```{r fig.width=6, fig.height=3}
+hist(fishing4News, col=4, breaks=20, freq=FALSE, main="Distribution of p-values", xlab="p-values")
+lines(density(fishing4News), col=2, lwd=2)
+```
+
+This way we get `r length(which(fishing4News<.05))` significant results. This problem is well known in genomics and adressed by a plethora of methods for multiple correction. Transparency however is not always necessarily guaranteed, especially in in fields such as social science, and the issue is still a very much debated hot topic (E.g [The garden of forking paths: Why multiple comparisons can be a problem,
+even when there is no "fishing expedition" or "$p$-hacking" and the research
+hypothesis was posited ahead of time](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf)).
+<!-- Berger claims that it is ignored in epidemiology -->
+
+### Correction for multiple testing
+One way to account for multiple testing is by adopting the Benjamini-Hochberg correction. If we are "lucky" we can still get in the news after correcting for multiple testing, but we might need a rather larger number of crazy ideas.
+```{r}
+set.seed(7)
+nColors <- 10000
+nObs <- 20
+jellyBeans <- matrix(rnorm(nObs*nColors), ncol=nColors)
+fishing4News <- apply(jellyBeans, 2, function(x) t.test(x)$p.value)
+BHfishing <- p.adjust(fishing4News, "BH")
+```
+
+When testing for `r nColors` colours, and with a limited number (`r nObs` in this case) of observations we still get one significant result. However only `r length(which(BHfishing < .8))` are below .8.
+```{r}
+min(BHfishing)
+sort(BHfishing)[1:5]
+```
+
+```{r fig.width=6, fig.height=3}
+hist(BHfishing, col=4, breaks=20, freq=FALSE, main="Distribution of adjusted p-values", xlab="Benjamini-Hochberg adjusted p-values")
+```
+
+And if you really feel you need to, you can also save (and load) your entire workspace
+```{rSave}
+save.image(file="fishing.RData")
+load(file="fishing.RData")
+```
+
+### Disclaimer
+This report is freely available for the benefit of **science**, so that our steps on the way to the news can be checked by anybody who wishes to do so.

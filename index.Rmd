@@ -1,13 +1,14 @@
 ---
-title       : Reproducibility in life science
-subtitle    : Reproducible reports with markdown, knitr, slidify
-author      : Giusi Moffa
-job         : Practical Bioinformatics, 27 May 2014
-framework   : io2012       # {io2012, html5slides, shower, dzslides, ...}
-highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : solarized_light      # 
-widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
-mode        : standalone # {selfcontained, standalone, draft}
+title: "Reproducibility in life science"
+author: "Giusi Moffa"
+highlighter: highlight.js
+output: html_document
+job: Practical Bioinformatics, 27 May 2014
+mode: standalone
+hitheme: solarized_light
+subtitle: Reproducible reports with markdown, knitr, slidify
+framework: io2012
+widgets: mathjax
 ---
 
 <!-- library(slidify) 

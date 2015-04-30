@@ -37,7 +37,7 @@ strong {
 
 * _"It ain't so much the things we don't know that get us into trouble. It's the things we know that just ain't so."_ Uncertain source.
 
-[<img src="figure/IoannidisPlosMedicine2005.png" width="600px" />](http://www.plosmedicine.org/article/info%3Adoi%2F10.1371%2Fjournal.pmed.0020124)  
+[<img src="figure/IoannidisPlosMedicine2005.jpg" width="600px" />](http://www.plosmedicine.org/article/info%3Adoi%2F10.1371%2Fjournal.pmed.0020124)  
 Plos Medicine, 2005  
 [Some links to its media coverage](http://www.plosmedicine.org/article/related/info%3Adoi%2F10.1371%2Fjournal.pmed.0020124)
 
@@ -49,13 +49,13 @@ John P. A. Ioannidis, 2013, frontiers in Genetics
 --- .class #id 
 
 ## Reproducibility in recent scientific publications
-[<img src="figure/AgainAgainAgain.png" width="600px" />](http://www.sciencemag.org/content/334/6060/1225)
+[<img src="figure/AgainAgainAgain.jpg" width="600px" />](http://www.sciencemag.org/content/334/6060/1225)
 
 Science, December 2011  
 Barbara R. Jasny, Gilbert Chin, Lisa Chong, Sacha Vignieri  
 
 [<img src="figure/scienceCover.gif" width="200px" />](http://www.sciencemag.org/site/special/data-rep/)
-<img src="figure/Science2011Peng.png" width="500px" />
+<img src="figure/Science2011Peng.jpg" width="500px" />
 
 ---
 

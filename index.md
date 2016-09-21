@@ -4,7 +4,7 @@ author: "Giusi Moffa"
 highlighter: highlight.js
 output: html_document
 job: Practical Bioinformatics, 27 May 2014
-mode: selfcontained
+mode: standalone
 hitheme: solarized_light
 subtitle: Reproducible reports with markdown, knitr, slidify
 framework: io2012
@@ -13,7 +13,8 @@ lib_cdn: "https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libraries
 ---
 
 <!-- library(slidify) 
-setwd("~/juicy/BioStatWork2012/mytex/journalClub/Reproducibility")
+setwd("~/juicy/BioStatWork2012/mytex/journalClub/Reproducibility/repBioInfo")
+slidify("index.Rmd")
 publish(user="annlia", repo="reproduce") ## for github
 http://annlia.github.com/reproduce
 publish(title = 'reproducibility', 'index.html', host = 'rpubs') ## for Rpubs

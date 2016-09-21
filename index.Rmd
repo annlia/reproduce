@@ -4,16 +4,20 @@ author: "Giusi Moffa"
 highlighter: highlight.js
 output: html_document
 job: Practical Bioinformatics, 27 May 2014
-mode: standalone
+mode: selfcontained
 hitheme: solarized_light
 subtitle: Reproducible reports with markdown, knitr, slidify
 framework: io2012
 widgets: mathjax
+lib_cdn: "https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libraries"
 ---
 
 <!-- library(slidify) 
+setwd("~/juicy/BioStatWork2012/mytex/journalClub/Reproducibility")
 publish(user="annlia", repo="reproduce") ## for github
+http://annlia.github.com/reproduce
 publish(title = 'reproducibility', 'index.html', host = 'rpubs') ## for Rpubs
+https://help.github.com/articles/generating-ssh-keys/
 -->
 <!-- pandoc index.md -t beamer -V theme:Warsaw -o bioInfo.pdf -->
 <!-- setwd("~/juicy/BioStatWork2012/mytex/journalClub/Reproducibility/repBioInfo") -->
